@@ -602,7 +602,7 @@ open() {
 
                 clear_screen
                 reset_terminal
-                "${VISUAL:-${EDITOR:-vi}}" "$1"
+                tmux select-pane -R && tmux split-window "${VISUAL:-${EDITOR:-vi}} $1"
                 setup_terminal
                 redraw
             ;;
